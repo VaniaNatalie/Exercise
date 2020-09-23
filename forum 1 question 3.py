@@ -1,8 +1,0 @@
-print("Mad Libs Game")
-print("A Shinigami [verb] my [adjective] [noun 1] out of the [noun 2] as if he were a vegetarian fishing a [noun 3] out of his salad")
-verb = input("Enter a verb: ")
-adj = input("Enter an adjective: ")
-noun1 = input("Enter noun 1: ")
-noun2 = input("Enter noun 2: ")
-noun3 = input("Enter noun 3: ")
-print("A Shinigami", verb, "my", adj, noun1, "out of the", noun2, "as if he were a vegetarian fishing a", noun3, "out of his salad")
