@@ -15,8 +15,7 @@ def makeForming(word):
             if word[-3] not in vowels:
                 c = word + str(word[-1]) + "ing"
                 return c
-    else:
-        word += 'ing'
+    return word += 'ing'
 
 def main():
     word = input("Input word: ")
