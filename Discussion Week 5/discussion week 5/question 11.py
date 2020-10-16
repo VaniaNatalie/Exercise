@@ -9,6 +9,6 @@ def char_freq(character):
 
 def main():
     character = str(input("Enter character here: "))
-    print(char_freq())
+    print(char_freq(character))
 
 main()
