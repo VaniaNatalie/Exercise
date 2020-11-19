@@ -1,5 +1,4 @@
 import pathlib
-import re
 pathlib.Path.cwd() #current working directory
 
 def hapax(file_split, wordcounter):
