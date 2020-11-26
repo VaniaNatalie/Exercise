@@ -1,0 +1,29 @@
+import random
+
+def nextWord(current_sequence, lastLetter, sequence):
+    for names in sequence:
+        if names.startswith(lastLetter):
+            current_sequence.append(names)
+            sequence.pop(sequence.index(names))
+            return current_sequence
+
+def wordGame(sequence):
+    current_sequence = []
+    longest_sequence = []
+    sequence = sequence.split()
+    firstWord = random.choice(sequence)
+    current_sequence.append(firstWord)
+    sequence.pop(sequence.index(firstWord))
+
+    # Keep on looping if the result is not equals to None
+    loop = nextWord(current_sequence, current_sequence[-1][-1], sequence)
+    while loop is not None:
+        loop = nextWord(current_sequence, current_sequence[-1][-1], sequence)
+
+    if len(longest_sequence) < len(current_sequence):
+        longest_sequence = current_sequence
+    print(longest_sequence)
+
+if __name__ == "__main__":
+    pokemons = "audino bagon baltoy banette bidoof braviary bronzor carracosta charmeleon cresselia croagunk darmanitan deino emboar emolga exeggcute gabite girafarig gulpin haxorus heatmor heatran ivysaur jellicent jumpluff kangaskhan kricketune landorus ledyba loudred lumineon lunatone machamp magnezone mamoswine nosepass petilil pidgeotto pikachu pinsir poliwrath poochyena porygon2 porygonz registeel relicanth remoraid rufflet sableye scolipede scrafty seaking sealeo silcoon simisear snivy snorlax spoink starly tirtouga trapinch treecko tyrogue vigoroth vulpix wailord wartortle whismur wingull yamask"
+    wordGame(pokemons)
