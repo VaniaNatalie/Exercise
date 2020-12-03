@@ -1,0 +1,53 @@
+class Account:
+    def __init__(self, balance = 1000):
+        self.balance = balance
+    def getBalance(self):
+        return self.balance
+    def deposit(self, amt):
+        if amt > 0:
+            self.balance = self.balance + amt
+            return True
+        else:
+            return False
+    def withdraw(self, amt):
+        if amt <= self.balance:
+            self.balance = self.balance - amt
+            return True
+        else:
+            return False
+
+
+if __name__ == "__main__":
+    print("Welcome! Let's create an account!")
+    acc = []
+    a = int(input("How much will your initial deposit be (minimum will be 1000)? "))
+    if a >= 1000:
+        newAccount = Account(a)
+        acc.append(newAccount)
+        print("Account created! The current balance is ", newAccount.balance)
+    else:
+        print("Invalid!")
+    ans = input("What do you want to do?\n1. Deposit\n2. Withdraw\n"
+                "3. Check balance\n4. Quit\n")
+    while ans != "4":
+        for i in acc:
+            if ans == '1':
+                b = int(input("How much do you want to deposit? "))
+                if i.deposit(b):
+                    print("Success! Your balance is:", i.getBalance())
+                else:
+                    print("Invalid")
+
+            elif ans == '2':
+                c = int(input("How much do you want to withdraw? "))
+                if i.withdraw(c):
+                    print("Success! Your balance is:", i.getBalance())
+                else:
+                    print("Invalid")
+
+            elif ans == '3':
+                print("Your balance is:", i.getBalance())
+            ans = input("\nWhat do you want to do?\n1. Deposit\n2. Withdraw\n"
+                            "3. Check balance\n4. Quit\n")
+
+    print("Thankyou!")
