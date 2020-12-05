@@ -28,7 +28,7 @@ if __name__ == "__main__":
             firstName = input("Input first name: ")
             lastName = input("Input last name: ")
             index = int(input("Input your customer number: "))
-            if firstName in customerDict and lastName == customerDict[firstName]:
+            if firstName in customerDict and lastName == customerDict[firstName][0] and index == customerDict[firstName][1]:
                 ansCust = custMenu()
                 while 0 < ansCust < 4:
                     if ansCust == 1:
@@ -46,22 +46,22 @@ if __name__ == "__main__":
                         ansCust = custMenu()
                 ans = menu()
             else:
-                print("You don't have an account.")
+                print("You don't have an account or your index number is wrong.")
                 ans = menu()
         elif ans == 3:
             firstName = str(input("Input first name: "))
             lastName = str(input("Input last name: "))
-            customerDict[firstName] = lastName
+            customerDict[firstName] = [lastName, customerCounter]
             BCA.addCustomers(firstName, lastName)
             deposit = input("Do you want to add more from the default deposit 1000? (Y/N)? ")
             if deposit == 'Y':
                 deposit = int(input("How much more? "))
-                BCA.getCustomer(0).getAccount().deposit(deposit)
-                print("The current amount is", BCA.getCustomer(0).getAccount().getBalance())
+                BCA.getCustomer(-1).getAccount().deposit(deposit)
+                print("The current amount is", BCA.getCustomer(-1).getAccount().getBalance())
                 print("Your account number is", customerCounter)
                 customerCounter += 1
             elif deposit == 'N':
-                print("The current amount is", BCA.getCustomer(0).getAccount().getBalance())
+                print("The current amount is", BCA.getCustomer(-1).getAccount().getBalance())
                 print("Your account number is", customerCounter)
                 customerCounter += 1
             ans = menu()
