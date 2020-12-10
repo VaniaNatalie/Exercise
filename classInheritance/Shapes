@@ -1,0 +1,102 @@
+import math
+
+
+class Shape:
+    def __init__(self, color="green", filled=True):
+        self.color = color
+        self.filled = filled
+
+    def getColor(self):
+        return self.color
+
+    def setColor(self, color):
+        self.color = color
+
+    def isFilled(self):
+        if self.color == "":
+            self.filled = False
+            return "not filled"
+        else:
+            self.filled = True
+            return "is filled"
+
+    def setFilled(self, filled):
+        self.filled = filled
+
+    def __str__(self):
+        return f"A shape with a color of {self.color} and {Shape.isFilled(self)}"
+
+
+class Circle(Shape):
+    def __init__(self, color, filled, radius=1.0):
+        super().__init__(color, filled)
+        self.radius = radius
+
+    def getRadius(self):
+        return self.radius
+
+    def setRadius(self, radius):
+        self.radius = radius
+
+    def getArea(self):
+        return math.pi * (self.radius ** 2)
+
+    def getPerimeter(self):
+        return 2 * math.pi * self.radius
+
+    def __str__(self):
+        return f"A circle with radius {self.radius} which is a subclass of {super().__str__()}"
+
+
+class Rectangle(Shape):
+    def __init__(self, color, filled, width=1.0, length=1.0):
+        super().__init__(color, filled)
+        self.width = width
+        self.length = length
+
+    def getWidth(self):
+        return self.width
+
+    def setWidth(self, width):
+        self.width = width
+
+    def getLength(self):
+        return self.length
+
+    def setLength(self, length):
+        self.length = length
+
+    def getArea(self):
+        return self.width * self.length
+
+    def getPerimeter(self):
+        return (2 * self.width) + (2 * self.length)
+
+    def __str__(self):
+        return f"A Rectangle with width {self.width} and length {self.length} " \
+               f"which is a subclass of {super().__str__()}"
+
+
+class Square(Rectangle):
+    def __init__(self, color, filled, sides):
+        super().__init__(color, filled, sides, sides)
+
+    def getSide(self):
+        return self.length
+
+    def setSide(self, sides):
+        self.width = sides
+        self.length = sides
+
+    def setWidth(self, sides):
+        self.width = sides
+
+    def setLength(self, sides):
+        self.length = sides
+
+    def __str__(self):
+        return f"A square with sides {self.length} which is a subclass of {super().__str__()}"
+
+if __name__ == "__main__":
+    shape = Square("red", True, 5)
+    print(shape)
