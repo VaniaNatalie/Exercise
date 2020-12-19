@@ -14,7 +14,7 @@ class Settings:
         self.bullets_allowed = 5
 
         # Alien settings
-        self.alien_drop_speed = 0.5
+        self.alien_drop_speed = 6
 
         # How quickly game speeds up
         self.speedup = 1.2
@@ -28,7 +28,7 @@ class Settings:
         # Attributes changed with level change
         self.ship_speed = 1.5
         self.bullet_speed = 1.5
-        self.alien_speed = 5
+        self.alien_speed = 0.8
         self.alien_points = 25
 
         # 1 for right, -1 for left
